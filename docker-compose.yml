@@ -1,0 +1,27 @@
+version: "2.2"
+
+services:
+  mysql:
+    image: mysql:8.2
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=
+      - MYSQL_ALLOW_EMPTY_PASSWORD=true
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=123ttt
+      - MYSQL_DATABASE=binocularvision
+    volumes:
+      - "./conf.d:/etc/mysql/conf.d:ro"
+    profiles:
+      - mysql
+  postgres:
+    image: postgres:16.1
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=petclinic
+      - POSTGRES_USER=petclinic
+      - POSTGRES_DB=petclinic
+    profiles:
+      - postgres
