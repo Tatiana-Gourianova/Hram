@@ -86,13 +86,13 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-testcontainers</artifactId>
-			<versionRange>[0,)</versionRange>
+			<version>LATEST</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-docker-compose</artifactId>
-			<versionRange>[0,)</versionRange>
+			<version>LATEST</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -119,13 +119,13 @@
 		<dependency>
 			<groupId>org.testcontainers</groupId>
 			<artifactId>junit-jupiter</artifactId>
-			<versionRange>[0,)</versionRange>
+			<version>LATEST</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.testcontainers</groupId>
 			<artifactId>mysql</artifactId>
-			<versionRange>[0,)</versionRange>
+			<version>LATEST</versio>
 			<scope>test</scope>
 		</dependency>
 
@@ -357,7 +357,7 @@
 									<pluginExecutionFilter>
 										<groupId>org.apache.maven.plugins</groupId>
 										<artifactId>maven-checkstyle-plugin</artifactId>
-										<versionRange>[1,)</versionRange>
+										<version>${maven.version}</version>
 										<goals>
 											<goal>check</goal>
 										</goals>
@@ -370,7 +370,7 @@
 									<pluginExecutionFilter>
 										<groupId>org.springframework.boot</groupId>
 										<artifactId>spring-boot-maven-plugin</artifactId>
-										<versionRange>[1,)</versionRange>
+										<version>LATEST</version>
 										<goals>
 											<goal>build-info</goal>
 										</goals>
@@ -383,7 +383,7 @@
 									<pluginExecutionFilter>
 										<groupId>io.spring.javaformat</groupId>
 										<artifactId>spring-javaformat-maven-plugin</artifactId>
-										<versionRange>[0,)</versionRange>
+										<version>[0,)</version>
 										<goals>
 											<goal>validate</goal>
 										</goals>
