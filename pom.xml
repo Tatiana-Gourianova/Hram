@@ -166,82 +166,16 @@
 		</dependency>
 	</dependencies>
 
-<!--	<build>
+	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>LATEST</version>
 			</plugin>
 		</plugins>
 	</build>
--->
-<plugins>
-<plugin>
-<groupId>org.graalvm.buildtools</groupId>
-<artifactId>native-maven-plugin</artifactId>
-</plugin>
-<plugin>
-<groupId>org.springframework.boot</groupId>
-<artifactId>spring-boot-maven-plugin</artifactId>
-<executions>
-	<execution>
-		<!-- Spring Boot Actuator displays build-related information
-          if a META-INF/build-info.properties file is present -->
-		<goals>
-			<goal>build-info</goal>
-		</goals>
-		<configuration>
-			<additionalProperties>
-				<encoding.source>${project.build.sourceEncoding}</encoding.source>
-				<encoding.reporting>${project.reporting.outputEncoding}</encoding.reporting>
-				<java.source>${java.version}</java.source>
-				<java.target>${java.version}</java.target>
-			</additionalProperties>
-		</configuration>
-	</execution>
-</executions>
-</plugin>
-<plugin>
-<groupId>org.jacoco</groupId>
-<artifactId>jacoco-maven-plugin</artifactId>
-<version>${jacoco.version}</version>
-<executions>
-	<execution>
-		<goals>
-			<goal>prepare-agent</goal>
-		</goals>
-	</execution>
-	<execution>
-		<id>report</id>
-		<phase>prepare-package</phase>
-		<goals>
-			<goal>report</goal>
-		</goals>
-	</execution>
-</executions>
-</plugin>
 
-		<!-- Spring Boot Actuator displays build-related information if a git.properties
-          file is present at the classpath -->
-<plugin>
-<groupId>io.github.git-commit-id</groupId>
-<artifactId>git-commit-id-maven-plugin</artifactId>
-<configuration>
-	<failOnNoGitDirectory>false</failOnNoGitDirectory>
-	<failOnUnableToExtractRepoInfo>false</failOnUnableToExtractRepoInfo>
-</configuration>
-</plugin>
-
-		</plugins>
-
-	
-
-<licenses>
-<license>
-	<name>Apache License, Version 2.0</name>
-	<url>https://www.apache.org/licenses/LICENSE-2.0</url>
-</license>
-</licenses>
 
 <repositories>
 <repository>
@@ -282,58 +216,7 @@
 </pluginRepositories>
 
 <profiles>
-<profile>
-	<id>css</id>
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>unpack</id>
-						<?m2e execute onConfiguration,onIncremental?>
-						<phase>generate-resources</phase>
-						<goals>
-							<goal>unpack</goal>
-						</goals>
-						<configuration>
-							<artifactItems>
-								<artifactItem>
-									<groupId>org.webjars.npm</groupId>
-									<artifactId>bootstrap</artifactId>
-									<version>${webjars-bootstrap.version}</version>
-								</artifactItem>
-							</artifactItems>
-							<outputDirectory>${project.build.directory}/webjars</outputDirectory>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
 
-			<plugin>
-				<groupId>com.gitlab.haynes</groupId>
-				<artifactId>libsass-maven-plugin</artifactId>
-				<version>${libsass.version}</version>
-				<executions>
-					<execution>
-						<phase>generate-resources</phase>
-						<?m2e execute onConfiguration,onIncremental?>
-						<goals>
-							<goal>compile</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<inputPath>${basedir}/src/main/scss/</inputPath>
-					<outputPath>${basedir}/src/main/resources/static/resources/css/</outputPath>
-					<includePath>
-						${project.build.directory}/webjars/META-INF/resources/webjars/bootstrap/${webjars-bootstrap.version}/scss/</includePath>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
-</profile>
 <profile>
 	<id>m2e</id>
 	<activation>
