@@ -86,11 +86,13 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-testcontainers</artifactId>
+			<versionRange>[0,)</versionRange>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-docker-compose</artifactId>
+			<versionRange>[0,)</versionRange>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -117,11 +119,13 @@
 		<dependency>
 			<groupId>org.testcontainers</groupId>
 			<artifactId>junit-jupiter</artifactId>
+			<versionRange>[0,)</versionRange>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.testcontainers</groupId>
 			<artifactId>mysql</artifactId>
+			<versionRange>[0,)</versionRange>
 			<scope>test</scope>
 		</dependency>
 
@@ -171,25 +175,6 @@
 		</plugins>
 	</build>
 -->
-
-	<executions>
-		<execution>
-			<id>nohttp-checkstyle-validation</id>
-			<phase>validate</phase>
-			<configuration>
-				<configLocation>src/checkstyle/nohttp-checkstyle.xml</configLocation>
-				<sourceDirectories>${basedir}</sourceDirectories>
-				<includes>**/*</includes>
-				<excludes>**/.git/**/*,**/.idea/**/*,**/target/**/,**/.flattened-pom.xml,**/*.class</excludes>
-				<propertyExpansion>
-					config_loc=${basedir}/src/checkstyle/
-				</propertyExpansion>
-			</configuration>
-			<goals>
-				<goal>check</goal>
-			</goals>
-		</execution>
-	</executions>
 <plugins>
 <plugin>
 <groupId>org.graalvm.buildtools</groupId>
